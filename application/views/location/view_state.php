@@ -63,7 +63,7 @@
                     <table id="state_table" class="table table-striped table-bordered nowrap">
                         <thead>
                         <tr>
-                            <th>Brand</th>
+                            <th>State</th>
 
                             <th>Action</th>
                         </tr>

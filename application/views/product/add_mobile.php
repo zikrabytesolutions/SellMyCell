@@ -79,12 +79,12 @@
                     <div class="form-group col-md-6">
                         <label class="control-label text-lg-right pt-2" for="inputDefault">Mobile Image</label>
 
-                        <input type="file" name="icon" value="" class="form-control" required>
+                        <input type="file" accept="image/*" name="icon" value="" class="form-control" required>
 
                     </div>
 
                     <div class="form-group col-md-6">
-                        <label class="control-label text-lg-right pt-2" for="inputDefault">Like New</label>
+                        <label class="control-label text-lg-right pt-2" for="inputDefault">Base Price</label>
 
                         <input type="text" name="like_new" value="" class="form-control" onkeypress="return ((event.charCode >= 48 && event.charCode <= 57) || event.charCode == 46 || event.charCode == 0)"  required>
 
@@ -301,7 +301,7 @@
                 <div class="form-group row">
                     <label class="col-lg-3 control-label text-lg-right pt-2" for="inputDefault">Upload Excel File</label>
                     <div class="col-lg-6">
-                        <input type="file" name="excel_file" class="form-control" required>
+                        <input type="file" accept="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel" name="excel_file" class="form-control" required>
 
                     </div>
                 </div>

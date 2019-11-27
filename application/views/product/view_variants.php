@@ -46,7 +46,7 @@
                             <div class="form-group col-md-12">
                                 <label>Icon</label>
 
-                                <input type="file" name="icon_u" value="" class="form-control" placeholder="" onchange="loadFile(event)">
+                                <input type="file" accept="image/*" name="icon_u" value="" class="form-control" placeholder="" onchange="loadFile(event)">
 
 
                             </div>
@@ -288,6 +288,12 @@
     
     $(".check_all").click(function(){
         $('input:checkbox').not(this).prop('checked', this.checked);
+        if($(".multi_del:checked").length > 0){
+            $('#delete_multi').removeAttr("disabled","disabled");
+        }
+        else{
+            $('#delete_multi').attr("disabled","disabled");
+        }
     });
 
     $(document).on('click','.deleteUser',function(e){

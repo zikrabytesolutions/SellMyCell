@@ -36,7 +36,7 @@
                             <div class="form-group col-md-12">
                                 <label>Icon</label>
 
-                                <input type="file" name="icon_u" value="" class="form-control" placeholder="" onchange="loadFile(event)">
+                                <input type="file" accept="image/*" name="icon_u" value="" class="form-control" placeholder="" onchange="loadFile(event)">
 
 
                             </div>
@@ -94,7 +94,10 @@
                         <thead>
                         <tr class="text-center">
                              <th>
+                                   Select All
+                                   <div>
                                 <input type='checkbox' name='check_all' class='check_all'">
+                                </div>
                             </th>
                              <th>Model Id</th>
                             <th>Brand</th>
@@ -108,6 +111,7 @@
                         <?php foreach ($result as $row): ?>
                             <tr class="text-center">
                                 <td>
+                                  
                                     <input type='checkbox' name='multi_del' class='multi_del' value="<?=$row['id']; ?>">
                                 </td>
                                 <td>
@@ -222,6 +226,12 @@
     
     $(".check_all").click(function(){
         $('input:checkbox').not(this).prop('checked', this.checked);
+        if($(".multi_del:checked").length > 0){
+            $('#delete_multi').removeAttr("disabled","disabled");
+        }
+        else{
+            $('#delete_multi').attr("disabled","disabled");
+        }
     });
 
     $(document).on('click','.deleteUser',function(e){

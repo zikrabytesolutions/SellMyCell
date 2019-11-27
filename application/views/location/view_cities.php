@@ -36,7 +36,7 @@
                             <div class="form-group col-md-12">
                                 <label>Icon</label>
 
-                                <input type="file" name="icon_u" value="" class="form-control" placeholder="" onchange="loadFile(event)">
+                                <input type="file" accept="image/*" name="icon_u" value="" class="form-control" placeholder="" onchange="loadFile(event)">
 
 
                             </div>

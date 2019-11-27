@@ -75,34 +75,34 @@
                             <div class="form-group col-md-4">
                                 <label>Icon</label>
 
-                                <input type="file" name="icon_u" value="" class="form-control" placeholder="" onchange="loadFile(event)">
+                                <input type="file" accept="image/*" name="icon_u" value="" class="form-control" placeholder="" onchange="loadFile(event)">
 
 
                             </div>
 
                             <div class="form-group col-md-4">
-                                <label class="control-label text-lg-right pt-2" for="inputDefault">Like New</label>
+                                <label class="control-label text-lg-right pt-2" for="inputDefault">Base Price</label>
 
                                 <input type="text" name="like_new_u" value="" class="form-control" onkeypress="return ((event.charCode >= 48 && event.charCode <= 57) || event.charCode == 46 || event.charCode == 0)"  required>
 
                             </div>
 
                             <div class="form-group col-md-4">
-                                <label class="control-label text-lg-right pt-2" for="inputDefault">Box NA</label>
+                                <label class="control-label text-lg-right pt-2" for="inputDefault">Box (NA)</label>
 
                                 <input type="text" name="box_na_u" value="" class="form-control" onkeypress="return ((event.charCode >= 48 && event.charCode <= 57) || event.charCode == 46 || event.charCode == 0)" required>
 
                             </div>
 
                             <div class="form-group col-md-4">
-                                <label class="control-label text-lg-right pt-2" for="inputDefault">Bill NA</label>
+                                <label class="control-label text-lg-right pt-2" for="inputDefault">Bill (NA)</label>
 
                                 <input type="text" name="bill_na_u" value="" class="form-control" onkeypress="return ((event.charCode >= 48 && event.charCode <= 57) || event.charCode == 46 || event.charCode == 0)" required>
 
                             </div>
 
                             <div class="form-group col-md-4">
-                                <label class="control-label text-lg-right pt-2" for="inputDefault">Charger NA</label>
+                                <label class="control-label text-lg-right pt-2" for="inputDefault">Charger (NA)</label>
 
                                 <input type="text" name="charger_na_u" value="" class="form-control" onkeypress="return ((event.charCode >= 48 && event.charCode <= 57) || event.charCode == 46 || event.charCode == 0)" required>
 
@@ -110,7 +110,7 @@
 
 
                             <div class="form-group col-md-4">
-                                <label class="control-label text-lg-right pt-2" for="inputDefault">Earphone NA</label>
+                                <label class="control-label text-lg-right pt-2" for="inputDefault">Earphone (NA)</label>
 
                                 <input type="text" name="earphone_na_u" value="" class="form-control" onkeypress="return ((event.charCode >= 48 && event.charCode <= 57) || event.charCode == 46 || event.charCode == 0)" required>
 
@@ -131,14 +131,14 @@
                             </div>
 
                             <div class="form-group col-md-4">
-                                <label class="control-label text-lg-right pt-2" for="inputDefault">Warranty 6-6</label>
+                                <label class="control-label text-lg-right pt-2" for="inputDefault">Warranty 6-11</label>
 
                                 <input type="text" name="warranty_6_11_u" value="" class="form-control" onkeypress="return ((event.charCode >= 48 && event.charCode <= 57) || event.charCode == 46 || event.charCode == 0)" required>
 
                             </div>
 
                             <div class="form-group col-md-4">
-                                <label class="control-label text-lg-right pt-2" for="inputDefault">Warranty >11</label>
+                                <label class="control-label text-lg-right pt-2" for="inputDefault">Warranty Above 11</label>
 
                                 <input type="text" name="warranty_above_11_u" value="" class="form-control" onkeypress="return ((event.charCode >= 48 && event.charCode <= 57) || event.charCode == 46 || event.charCode == 0)" required>
 
@@ -323,31 +323,31 @@
                             <th>Internal Memory</th>
                             <th>Icon</th>
                             <th>Base Price</th>
-                            <th>box_na</th>
-                            <th>bill_na</th>
-                            <th>charger_na</th>
-                            <th>earphone_na</th>
-                            <th>warranty_below_3</th>
-                            <th>warranty_3_6</th>
-                            <th>warranty_6_11</th>
-                            <th>warranty_above_11</th>
-                            <th>glass_broke</th>
-                            <th>display_crack</th>
-                            <th>front_camera_fault</th>
-                            <th>back_camera_fault</th>
-                            <th>battery_fault</th>
-                            <th>wifi_fault</th>
-                            <th>speaker_fault</th>
-                            <th>mic_fault</th>
-                            <th>volumn_btn_fault</th>
-                            <th>charging_fault</th>
-                            <th>power_button_fault</th>
-                            <th>fingerprint_fault</th>
-                            <th>face_recog_fault</th>
-                            <th>looking_new</th>
-                            <th>looking_good</th>
-                            <th>looking_average</th>
-                            <th>looking_average_below</th>
+                            <th>Box (NA)</th>
+                            <th>Bill (NA)</th>
+                            <th>Charger (NA)</th>
+                            <th>Earphone (NA)</th>
+                            <th>Warranty Below 3</th>
+                            <th>Warranty 3-6</th>
+                            <th>Warranty 6-11</th>
+                            <th>Warranty Above 11</th>
+                            <th>Broken Glass</th>
+                            <th>Display Crack</th>
+                            <th>Front Camera Fault</th>
+                            <th>Back Camera Fault</th>
+                            <th>Battery Fault</th>
+                            <th>Wifi Fault</th>
+                            <th>Speaker Fault</th>
+                            <th>Mic Fault</th>
+                            <th>Volume Button Fault</th>
+                            <th>Charging Fault</th>
+                            <th>Power_button Fault</th>
+                            <th>Fingerprint Fault</th>
+                            <th>Face_recog Fault</th>
+                            <th>Looking New</th>
+                            <th>Looking Good</th>
+                            <th>Looking Average</th>
+                            <th>Looking Average_below</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -732,6 +732,12 @@
 
     $(".check_all").click(function(){
         $('input:checkbox').not(this).prop('checked', this.checked);
+        if($(".multi_del:checked").length > 0){
+            $('#delete_multi').removeAttr("disabled","disabled");
+        }
+        else{
+            $('#delete_multi').attr("disabled","disabled");
+        }
     });
 
     $(document).on('click','.deleteUser',function(e){

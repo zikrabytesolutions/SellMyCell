@@ -42,7 +42,7 @@
                 <div class="form-group row">
                     <label class="col-lg-3 control-label text-lg-right pt-2" for="inputDefault">Icon</label>
                     <div class="col-lg-6">
-                        <input type="file" name="icon" value="<?= set_value('icon'); ?>" class="form-control" required>
+                        <input type="file" accept="image/*" name="icon" value="<?= set_value('icon'); ?>" class="form-control" required>
 
                     </div>
                 </div>

@@ -334,7 +334,7 @@
                     <th>Battery Issue</th>
                     <th>Speaker Issue</th>
                     <th>Mic Issue</th>
-                    <th>Volumn Issue</th>
+                    <th>Volume Issue</th>
                     <th>Charging Pin Issue</th>
                     <th>Power Button Issue</th>
                     <th>Fingerprint Issue	</th>
@@ -353,7 +353,7 @@
                     <th>Beneficiary Name</th>
                     <th>IFSC Code</th>
                     <th>Bank Name</th>
-                    <th>Pickup Aate</th>
+                    <th>Pickup Date</th>
                     <th>Pickup Time Slot</th>
                     <th>Final Price</th>
                     <th>Referral Code</th>

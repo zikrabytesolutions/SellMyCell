@@ -811,6 +811,12 @@
     
     $(".check_all").click(function(){
         $('.multi_del').not(this).prop('checked', this.checked);
+        if($(".multi_del:checked").length > 0){
+            $('#delete_multi').removeAttr("disabled","disabled");
+        }
+        else{
+            $('#delete_multi').attr("disabled","disabled");
+        }
     });
     
      $(document).on('click','#delete_multi',function(e){

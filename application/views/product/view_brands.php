@@ -27,7 +27,7 @@
                             <div class="form-group col-md-12">
                                 <label>Icon</label>
 
-                                <input type="file" name="icon_u" value="" class="form-control" placeholder="" onchange="loadFile(event)">
+                                <input type="file" name="icon_u" accept="image/*" value="" class="form-control" placeholder="" onchange="loadFile(event)">
 
 
                             </div>
@@ -93,7 +93,7 @@
                                                             <?= $row['brand']; ?>
                                     </td>
                                     <td>
-                                        <img src="<?= base_url();?>upload/brands/<?=$row['icon']; ?>" height="50" width="50">
+                                        <img src="<?= base_url();?>upload/brands/<?=$row['icon']; ?>" height="50" width="80">
                                     </td>
                                     <td>
                                          <span data-toggle="modal" data-target="#editModal">
