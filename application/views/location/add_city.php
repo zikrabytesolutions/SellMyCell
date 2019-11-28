@@ -7,7 +7,7 @@
             <div class="card-header">
                 <div class="row">
                     <div class="col-sm-6">
-                        <h5>Add City</h5>
+                        <h4>Add City</h4>
                     </div>
                     <div class="col-sm-6 text-right">
                         <a href="<?= base_url('Location/view_cities');?>" class="btn btn-primary">View Cities</a>

@@ -5,7 +5,7 @@
             <div class="card-header">
                 <div class="row">
                     <div class="col-sm-6">
-                        <h5>Add Mobile</h5>
+                        <h4>Add Mobile</h4>
                     </div>
                     <div class="col-sm-6 text-right">
                         <a href="<?= base_url('Product/view_mobiles');?>" class="btn btn-primary">View Mobiles</a>

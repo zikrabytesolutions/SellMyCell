@@ -61,7 +61,7 @@
 
                 <div class="row">
                     <div class="col-sm-6">
-                        <h5>Brands</h5>
+                        <h4>Brands</h4>
                     </div>
                     <div class="col-sm-6 text-right">
                         <a href="<?= base_url('Product/add_brands');?>" class="btn btn-primary">Add New Brands</a>

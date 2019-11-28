@@ -7,7 +7,7 @@
             <div class="card-header">
                 <div class="row">
                     <div class="col-sm-6">
-                        <h5>Add Pincode</h5>
+                        <h4>Add Pincode</h4>
                     </div>
                     <div class="col-sm-6 text-right">
                         <a href="<?= base_url('Location/view_pincodes');?>" class="btn btn-primary">View Pincodes</a>

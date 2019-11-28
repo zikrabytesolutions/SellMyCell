@@ -72,7 +72,7 @@
 
                 <div class="row">
                     <div class="col-md-7">
-                        <h5>Models</h5>
+                        <h4>Models</h4>
                     </div>
                     <div class="col-md-5">
                         <div class=row>
@@ -94,10 +94,10 @@
                         <thead>
                         <tr class="text-center">
                              <th>
-                                   Select All
-                                   <div>
+                                   
+                                 
                                 <input type='checkbox' name='check_all' class='check_all'">
-                                </div>
+                               
                             </th>
                              <th>Model Id</th>
                             <th>Brand</th>
@@ -106,34 +106,34 @@
                             <th>Action</th>
                         </tr>
                         </thead>
-                        <tbody>
+                        <tbody class="text-center">
 
-                        <?php foreach ($result as $row): ?>
-                            <tr class="text-center">
-                                <td>
-                                  
-                                    <input type='checkbox' name='multi_del' class='multi_del' value="<?=$row['id']; ?>">
-                                </td>
-                                <td>
-                                    <?= $row['id']; ?>
-                                </td>
-                                <td>
-                                    <?= $row['brand']; ?>
-                                </td>
-                                <td>
-                                    <?= $row['model']; ?>
-                                </td>
-                                <td>
-                                    <img src="<?= base_url();?>upload/models/<?=$row['icon']; ?>" height="50" width="50">
-                                </td>
-                                <td>
-                                         <span data-toggle="modal" data-target="#editModal">
-                                          <a class="btn btn-primary btn-sm updateUser" id="<?= $row['id']; ?>" name="updateMarks" data-toggle="tooltip" data-placement="top" title="Edit"><i class="fa fa-edit"></i></a>
-                                     </span>
-                                    <a href="" class="btn btn-danger btn-sm item_delete deleteUser" id="<?= $row['id']; ?>" data-toggle="tooltip" data-placement="top" title="Delete"><i class="fa fa-trash"></i></a>
-                                </td>
-                            </tr>
-                        <?php endforeach; ?>
+<!--                        --><?php //foreach ($result as $row): ?>
+<!--                            <tr class="text-center">-->
+<!--                                <td>-->
+<!--                                  -->
+<!--                                    <input type='checkbox' name='multi_del' class='multi_del' value="--><?//=$row['id']; ?><!--">-->
+<!--                                </td>-->
+<!--                                <td>-->
+<!--                                    --><?//= $row['id']; ?>
+<!--                                </td>-->
+<!--                                <td>-->
+<!--                                    --><?//= $row['brand']; ?>
+<!--                                </td>-->
+<!--                                <td>-->
+<!--                                    --><?//= $row['model']; ?>
+<!--                                </td>-->
+<!--                                <td>-->
+<!--                                    <img src="--><?//= base_url();?><!--upload/models/--><?//=$row['icon']; ?><!--" height="50" width="50">-->
+<!--                                </td>-->
+<!--                                <td>-->
+<!--                                         <span data-toggle="modal" data-target="#editModal">-->
+<!--                                          <a class="btn btn-primary btn-sm updateUser" id="--><?//= $row['id']; ?><!--" name="updateMarks" data-toggle="tooltip" data-placement="top" title="Edit"><i class="fa fa-edit"></i></a>-->
+<!--                                     </span>-->
+<!--                                    <a href="" class="btn btn-danger btn-sm item_delete deleteUser" id="--><?//= $row['id']; ?><!--" data-toggle="tooltip" data-placement="top" title="Delete"><i class="fa fa-trash"></i></a>-->
+<!--                                </td>-->
+<!--                            </tr>-->
+<!--                        --><?php //endforeach; ?>
 
                         </tbody>
 
@@ -149,7 +149,14 @@
 
 <script>
     $(document).ready( function () {
-        $('#brand_table').DataTable();
+        $('#brand_table').DataTable({
+            'ajax': '<?= base_url('Product/get_models')?>',
+              scrollY:        "500px",
+            // scrollX:        true,
+            scrollCollapse: true,
+            paging:         true,
+
+        });
 
         $.ajax({
             url:"<?php echo base_url('Product/fetch_brand'); ?>",
@@ -184,7 +191,7 @@
                 var img='<?= base_url(); ?>upload/models/'+data.icon;
                 $("#brand_u option[value= '"+data.brand_id+"' ]").attr("selected", "selected");
                 $("input[name='model_u']").val(data.model);
-                $("input[name='icon_u']").attr("placeholder",data.icon);
+                // $("input[name='icon_u']").attr("placeholder",data.icon);
                 $("input[name='id_u']").val(data.id);
                 $("input[name='brand_h']").val(data.brand_id);
 
@@ -210,8 +217,9 @@
                         text: "Record updated successfully",
                         showCancelButton: false,
                         showConfirmButton: false,
+                        timer: 1000
                     });
-                     location.reload();
+                    $('#brand_table').DataTable().ajax.reload(null, false);
 
                 }
                 else{
@@ -272,7 +280,7 @@
                                 data.msg,
                                 'success'
                             );
-                            location.reload();
+                            $('#brand_table').DataTable().ajax.reload(null, false);
                         }
                     }
                 });
@@ -285,11 +293,11 @@
                 swalWithBootstrapButtons.fire(
                     'Cancelled',
                 )
-                location.reload();
+                $('#brand_table').DataTable().ajax.reload(null, false);
             }
         });
     });
-    $(".multi_del").click(function() {
+    $(document).on('click','.multi_del', function() {
 
         if($(".multi_del:checked").length > 0){
             $('#delete_multi').removeAttr("disabled","disabled");
@@ -344,7 +352,7 @@
                                 data.msg,
                                 'success'
                             );
-                            location.reload();
+                            $('#brand_table').DataTable().ajax.reload(null, false);
                         }
                     }
                 });
@@ -357,7 +365,7 @@
                 swalWithBootstrapButtons.fire(
                     'Cancelled',
                 )
-                location.reload();
+                $('#brand_table').DataTable().ajax.reload(null, false);
             }
          });
          

@@ -492,9 +492,39 @@ class Product extends MY_Controller {
     }
 
     public function view_models(){
-        $data['result']=$this->Common_model->fetch_model();
+
         $data['view']='product/view_models';
         $this->load->view('layout/layout',$data);
+    }
+
+    public function get_models(){
+        $result=$this->Common_model->fetch_model();
+        $data=array();
+        foreach($result as $row){
+            $sub_array=array();
+            $sub_array[]='<td>
+                            <input type="checkbox" name="multi_del" class="multi_del" value="'.$row['id'] .'">
+                          </td>';
+            $sub_array[]=$row['id'];
+            $sub_array[]=$row['brand'];
+            $sub_array[]=$row['model'];
+
+            $sub_array[]='<td>
+                                    <img src="'.base_url('upload/models/').$row['icon'].'" height="50" width="50">
+                                </td>
+                                ';
+            $sub_array[]='<td>
+                                <span data-toggle="modal" data-target="#editModal">
+                                     <a class="btn btn-primary btn-sm updateUser" id="'.$row['id'].'" name="updateMarks" data-toggle="tooltip" data-placement="top" title="Edit"><i class="fa fa-edit"></i></a>
+                                </span>
+                                <a href="" class="btn btn-danger btn-sm item_delete deleteUser" id="'. $row['id'] .'" data-toggle="tooltip" data-placement="top" title="Delete"><i class="fa fa-trash"></i></a>
+                           </td>';
+            $data[]=$sub_array;
+        }
+        $output = array(
+            "data"              => $data
+        ) ;
+        echo json_encode($output);
     }
 
     public function fetch_model_details(){
@@ -592,6 +622,37 @@ class Product extends MY_Controller {
         echo json_encode($data);
     }
 
+    public function get_variants(){
+        $result=$this->Common_model->fetch_variant_all();
+        $data=array();
+        foreach($result as $row){
+            $sub_array=array();
+            $sub_array[]='<td>
+                            <input type="checkbox" name="multi_del" class="multi_del" value="'.$row['id'] .'">
+                          </td>';
+            $sub_array[]=$row['id'];
+            $sub_array[]=$row['brand'];
+            $sub_array[]=$row['model'];
+            $sub_array[]=$row['varient'];
+            $sub_array[]='<td>
+                                    <img src="'.base_url('upload/variants/').$row['icon'].'" height="50" width="50">
+                                </td>
+                                ';
+            $sub_array[]='<td>
+                                <span data-toggle="modal" data-target="#editModal">
+                                     <a class="btn btn-primary btn-sm updateUser" id="'.$row['id'].'" name="updateMarks" data-toggle="tooltip" data-placement="top" title="Edit"><i class="fa fa-edit"></i></a>
+                                </span>
+                                <a href="" class="btn btn-danger btn-sm item_delete deleteUser" id="'. $row['id'] .'" data-toggle="tooltip" data-placement="top" title="Delete"><i class="fa fa-trash"></i></a>
+                           </td>';
+            $data[]=$sub_array;
+        }
+        $output = array(
+            "data"              => $data
+        ) ;
+        echo json_encode($output);
+    }
+
+
     public function update_variant(){
         if (!empty($_FILES['icon_u']['name']))
         {
@@ -665,9 +726,70 @@ class Product extends MY_Controller {
         }
     }
     public function view_mobiles(){
-        $data['result']=$this->Common_model->fetch_mobiles_all();
         $data['view']='product/view_mobiles';
         $this->load->view('layout/layout',$data);
+    }
+
+    public function get_mobiles(){
+        $result=$this->Common_model->fetch_mobiles_all();
+        $data=array();
+        foreach($result as $row){
+            $sub_array=array();
+            $sub_array[]='<td>
+                            <input type="checkbox" name="multi_del" class="multi_del" value="'.$row['mobile_id'] .'">
+                          </td>';
+
+            $sub_array[]='<td>
+                                         <span data-toggle="modal" data-target="#editModal">
+                                          <a class="btn btn-primary btn-sm updateUser" id="'.$row['mobile_id'] .'" name="updateMarks" data-toggle="tooltip" data-placement="top" title="Edit"><i class="fa fa-edit"></i></a>
+                                     </span>
+                                    <a href="" class="btn btn-danger btn-sm item_delete deleteUser" id="'. $row['mobile_id'] .'" data-toggle="tooltip" data-placement="top" title="Delete"><i class="fa fa-trash"></i></a>
+                                </td>';
+            $sub_array[]='<td>
+                                    <img src="'. base_url('upload/mobiles/').$row['mobile_img'] .'" height="50" width="50">
+                                </td>';
+            $sub_array[]= $row['brand'];
+            $sub_array[]= $row['model'];
+            $sub_array[]= $row['varient'];
+            $sub_array[]= $row['mobile_title'];
+            $sub_array[]= $row['processor'];
+            $sub_array[]= $row['ram_size'];
+            $sub_array[]= $row['internal_memory'];
+            
+            $sub_array[]= $row['like_new'];
+            $sub_array[]= $row['box_na'];
+            $sub_array[]= $row['bill_na'];
+            $sub_array[]= $row['charger_na'];
+            $sub_array[]= $row['earphone_na'];
+            $sub_array[]= $row['warranty_below_3'];
+            $sub_array[]= $row['warranty_3_6'];
+            $sub_array[]= $row['warranty_6_11'];
+            $sub_array[]= $row['warranty_above_11'];
+            $sub_array[]= $row['glass_broke'];
+            $sub_array[]= $row['display_crack'];
+            $sub_array[]= $row['front_camera_fault'];
+            $sub_array[]= $row['back_camera_fault'];
+            $sub_array[]= $row['battery_fault'];
+            $sub_array[]= $row['wifi_fault'];
+            $sub_array[]= $row['speaker_fault'];
+            $sub_array[]= $row['mic_fault'];
+            $sub_array[]= $row['volumn_btn_fault'];
+            $sub_array[]= $row['charging_fault'];
+            $sub_array[]= $row['power_button_fault'];
+            $sub_array[]= $row['fingerprint_fault'];
+            $sub_array[]= $row['face_recog_fault'];
+            $sub_array[]= $row['looking_new'];
+            $sub_array[]= $row['looking_good'];
+            $sub_array[]= $row['looking_average'];
+            $sub_array[]= $row['looking_average_below'];
+
+
+            $data[]=$sub_array;
+        }
+        $output = array(
+            "data"              => $data
+        ) ;
+        echo json_encode($output);
     }
 
     public function fetch_mobile_details(){
@@ -1195,10 +1317,143 @@ class Product extends MY_Controller {
     }
 
     public function view_orders(){
-        $data['result'] = $this->Common_model->all_orders();
         $data['view']='product/view_orders';
         $this->load->view('layout/layout',$data);
 
+    }
+
+    public function get_orders(){
+        $result=$this->Common_model->all_orders();
+        $data=array();
+        foreach($result as $row){
+            $sub_array=array();
+
+            $process_check = '';
+            $pickup_check = '';
+            $complete_check = '';
+
+            $disabled = '';
+
+            if($row["processing"] == 1){
+                $process_check = 'checked';
+            }
+            if($row["onpickup"] == 1){
+                $pickup_check = 'checked';
+            }
+            if($row["completed"] == 1){
+                $complete_check = 'checked';
+                $disabled = 'disabled';
+            }
+
+
+            if($row['is_cancel'] == 1 || $row['placed'] == 0){
+                $disabled = 'disabled';
+            }
+
+
+
+
+            $sub_array[]='<td>
+                                    <input type="checkbox" name="multi_del" class="multi_del" value="'.$row['order_id'] .'">
+                                
+                         </td>';
+            $sub_array[]='<td>
+
+                            <span data-toggle="modal" data-target="#editModal">
+                                          <a class="btn btn-primary btn-sm updateUser" id="'.$row['order_id'].'" name="updateMarks" data-toggle="tooltip" data-placement="top" title="Edit"><i class="fa fa-eye"></i></a>
+                                     </span>
+                            <a href="" class="btn btn-danger btn-sm item_delete deleteUser" id="'.$row['order_id'].'" data-toggle="tooltip" data-placement="top" title="Delete"><i class="fa fa-trash"></i></a>
+
+                        </td>';
+            $sub_array[]='<td>
+                            <div class="to-do-list">
+                            <div class="checkbox-fade fade-in-primary">
+                                <label class="check-task">
+                                        <input type="checkbox" '. $disabled.' class="processing" name="processing" id="'. $row['order_id'] .'" value="" '.$process_check.'>
+                                        <span class="cr">
+                                            <i class="cr-icon icofont icofont-ui-check txt-primary"></i>
+                                         </span>
+                                </label>
+                            </div>
+                            </div>
+                            </td>';
+            $sub_array[]=  '<td>
+                            <div class="to-do-list">
+                                <div class="checkbox-fade fade-in-primary">
+                                    <label class="check-task">
+                                        <input type="checkbox" '. $disabled .'  class="onpickup" name="onpickup" id="'. $row['order_id'] .'" value="" '.$pickup_check.'>
+                                        <span class="cr">
+                                            <i class="cr-icon icofont icofont-ui-check txt-primary"></i>
+                                         </span>
+                                    </label>
+                                </div>
+                            </div>
+                        </td>';
+            $sub_array[]='<td>
+                            <div class="to-do-list">
+                                <div class="checkbox-fade fade-in-primary">
+                                    <label class="check-task">
+                                        <input type="checkbox" '. $disabled .' class="completed" name="completed" id="'. $row['order_id'] .'" value="" '.$complete_check.' >
+                                        <span class="cr">
+                                            <i class="cr-icon icofont icofont-ui-check txt-primary"></i>
+                                         </span>
+                                    </label>
+                                </div>
+                            </div>
+                        </td>';
+            $sub_array[]= $row['full_name'];
+            $sub_array[]= $row['mobile'];
+            $sub_array[]= $row['order_number'];
+            $sub_array[]= $row['created'];
+            $sub_array[]= $row['created'];
+            $sub_array[]= ($row['power_on'] == 1) ? 'Yes' : 'No';
+            $sub_array[]= ($row['box'] == 1) ? 'Yes' : 'No';
+            $sub_array[]= ($row['bill'] == 1) ? 'Yes' : 'No';
+            $sub_array[]= ($row['charger'] == 1) ? 'Yes' : 'No';
+            $sub_array[]= ($row['earphone'] == 1) ? 'Yes' : 'No';
+            $sub_array[]=  $row['device_age'];
+            $sub_array[]= ($row['glass_broken'] == 1) ? 'Yes' : 'No';
+            $sub_array[]= ($row['touch_issue'] == 1) ? 'Yes' : 'No';
+            $sub_array[]= ($row['front_camera_issue'] == 1) ? 'Yes' : 'No';
+            $sub_array[]= ($row['back_camera_issue'] == 1) ? 'Yes' : 'No';
+            $sub_array[]= ($row['wifi_issue'] == 1) ? 'Yes' : 'No';
+            $sub_array[]= ($row['battery_issue'] == 1) ? 'Yes' : 'No';
+            $sub_array[]= ($row['speaker_issue']== 1) ? 'Yes' : 'No';
+            $sub_array[]= ($row['mice_issue']== 1) ? 'Yes' : 'No';
+            $sub_array[]= ($row['volumn_issue']== 1) ? 'Yes' : 'No';
+            $sub_array[]= ($row['chargingpin_issue']== 1) ? 'Yes' : 'No';
+            $sub_array[]= ($row['power_btn_issue']== 1) ? 'Yes' : 'No';
+            $sub_array[]= ($row['finger_print_issue']== 1) ? 'Yes' : 'No';
+            $sub_array[]= ($row['face_recog_issue']== 1) ? 'Yes' : 'No';
+            $sub_array[]= $row['device_condition'];
+            $sub_array[]= $row['address_type'];
+            $sub_array[]= $row['address_first'];
+            $sub_array[]= $row['address_second'];
+            $sub_array[]= $row['locality'];
+            $sub_array[]= $row['city'];
+            $sub_array[]= $row['state'];
+            $sub_array[]= $row['pincode'];
+            $sub_array[]= $row['payment_type'];
+            $sub_array[]= ($row['upi_id']== null) ? 'NA' : $row['upi_id'];
+            $sub_array[]= ($row['account_no']== null) ? 'NA' : $row['account_no'];
+            $sub_array[]= ($row['beneficiary_name']== null) ? 'NA' :$row['beneficiary_name'];
+            $sub_array[]= ($row['ifsc_code']== null) ? 'NA' :$row['ifsc_code'];
+            $sub_array[]= ($row['bank_name']== null) ? 'NA' :$row['bank_name'];
+            $sub_array[]= $row['pickup_date'];
+            $sub_array[]= $row['pickup_tme_slot'];
+            $sub_array[]= $row['final_price'];
+            $sub_array[]= ($row['referral_code']== null) ? 'NA' :$row['referral_code'];
+            $sub_array[]= ($row['comment']== null) ? 'NA' :$row['comment'];
+            $sub_array[]= ($row['placed']== 1) ? 'Yes' : 'No';
+            $sub_array[]= ($row['is_cancel']== 1) ? 'Yes' : 'No';
+            $sub_array[]= $row['cancel_time'];
+
+            $data[]=$sub_array;
+        }
+        $output = array(
+            "data"              => $data
+        ) ;
+        echo json_encode($output);
     }
     
     public function fetch_order_for_copy(){
@@ -1348,6 +1603,44 @@ class Product extends MY_Controller {
                 'msg' => "Record Deleted Successfully"
             );
 
+            echo json_encode($data);
+        }
+
+    }
+    
+    public function unavailability(){
+
+        $data['view']='product/calendar';
+        $this->load->view('layout/layout',$data);
+    }
+
+    public function insert_timeslot(){
+
+
+        $data=array(
+            'slot_date' => $this->input->post('slot_date'),
+            'time_9_12'=> $this->input->post('time_9_12')?'1':'0',
+             'time_12_3'=> $this->input->post('time_12_3')?'1':'0',
+              'time_3_6'=> $this->input->post('time_3_6')?'1':'0'
+        );
+
+//        print_r($data);
+//        die();
+        $result=$this->Common_model->add($data,'cls_time_slot');
+
+        if ($result) {
+            $data=array(
+                'error'=> 0,
+                'msg'=> "Record Inserted Successfully"
+            );
+
+            echo json_encode($data);
+        }
+        else{
+            $data=array(
+                'error'=> 1,
+                'msg'=> "Something Went Wrong"
+            );
             echo json_encode($data);
         }
 

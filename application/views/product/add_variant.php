@@ -5,7 +5,7 @@
             <div class="card-header">
                 <div class="row">
                     <div class="col-sm-6">
-                        <h5>Add Variants</h5>
+                        <h4>Add Variants</h4>
                     </div>
                     <div class="col-sm-6 text-right">
                         <a href="<?= base_url('Product/view_variants');?>" class="btn btn-primary">View Variants</a>

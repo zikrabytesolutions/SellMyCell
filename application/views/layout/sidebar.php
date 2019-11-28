@@ -18,7 +18,7 @@
 
             <li id="l_product" class="pcoded-hasmenu">
                 <a href="javascript:void(0)">
-                    <span class="pcoded-micon"><i class="feather icon-sidebar"></i></span>
+                    <span class="pcoded-micon"><i class="feather icon-folder"></i></span>
                     <span class="pcoded-mtext">Product</span>
                 </a>
                 <ul class="pcoded-submenu">
@@ -66,7 +66,7 @@
             
             <li id="l_location" class="pcoded-hasmenu">
                 <a href="javascript:void(0)">
-                    <span class="pcoded-micon"><i class="feather icon-layers"></i></span>
+                    <span class="pcoded-micon"><i class="feather icon-map"></i></span>
                     <span class="pcoded-mtext">Location</span>
                 </a>
                 <ul class="pcoded-submenu">
@@ -92,8 +92,15 @@
 
             <li id="l_banner" class="">
                 <a href="<?= base_url('Product/view_banners'); ?>">
-                    <span class="pcoded-micon"><i class="feather icon-layers"></i></span>
+                    <span class="pcoded-micon"><i class="feather icon-image"></i></span>
                     <span class="pcoded-mtext">Banners</span>
+                </a>
+            </li>
+            
+            <li id="l_avail" class="">
+                <a href="<?= base_url('product/unavailability'); ?>">
+                    <span class="pcoded-micon"><i class="feather icon-calendar"></i></span>
+                    <span class="pcoded-mtext">Unavailability</span>
                 </a>
             </li>
         </ul>

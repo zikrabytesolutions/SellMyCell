@@ -38,6 +38,9 @@
 
     <link rel="stylesheet" href="<?= base_url();?>assets/files/datatables/media/css/dataTables.bootstrap4.css">
     
+        <link rel="stylesheet" href="https://cdn.datatables.net/fixedcolumns/3.3.0/css/fixedColumns.dataTables.min.css">
+
+    
     <script type="text/javascript" src="<?= base_url(); ?>assets/files/bower_components/jquery/js/jquery.min.js"></script>
 
     <script type="text/javascript" src="<?= base_url(); ?>assets/files/bower_components/jquery-ui/js/jquery-ui.min.js"></script>
@@ -56,6 +59,8 @@
     
     <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.1/css/select2.min.css" rel="stylesheet" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.1/js/select2.min.js"></script>
+        <script src="https://cdn.datatables.net/fixedcolumns/3.3.0/js/dataTables.fixedColumns.min.js"></script>
+
 
 
 

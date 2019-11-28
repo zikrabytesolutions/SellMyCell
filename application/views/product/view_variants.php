@@ -32,7 +32,7 @@
 
                                 </select>
 
-<!--                                <input type="text" name="brand_u" id="model_u" value="" class="form-control" placeholder="">-->
+                                <!--                                <input type="text" name="brand_u" id="model_u" value="" class="form-control" placeholder="">-->
                             </div>
 
                             <div class="form-group col-md-12">
@@ -46,7 +46,7 @@
                             <div class="form-group col-md-12">
                                 <label>Icon</label>
 
-                                <input type="file" accept="image/*" name="icon_u" value="" class="form-control" placeholder="" onchange="loadFile(event)">
+                                <input type="file" name="icon_u" value="" class="form-control" placeholder="" onchange="loadFile(event)">
 
 
                             </div>
@@ -81,7 +81,7 @@
 
                 <div class="row">
                     <div class="col-md-7">
-                        <h5>Variants</h5>
+                        <h4>Variants</h4>
                     </div>
                     <div class="col-md-5">
                         <div class="row">
@@ -103,7 +103,7 @@
                         <thead>
                         <tr class="text-center">
                             <th>
-                                                                <input type='checkbox' name='check_all' class='check_all'">
+                                <input type='checkbox' name='check_all' class='check_all'">
 
                             </th>
                             <th>Variant Id</th>
@@ -114,36 +114,36 @@
                             <th>Action</th>
                         </tr>
                         </thead>
-                        <tbody>
+                        <tbody class="text-center">
 
-                        <?php foreach ($result as $row): ?>
-                            <tr class="text-center">
-                                <td>
-                                    <input type='checkbox' name='multi_del' class='multi_del' value="<?=$row['id']; ?>">
-                                </td>
-                                 <td>
-                                    <?= $row['id']; ?>
-                                </td>
-                                <td>
-                                    <?= $row['brand']; ?>
-                                </td>
-                                <td>
-                                    <?= $row['model']; ?>
-                                </td>
-                                <td>
-                                    <?= $row['varient']; ?>
-                                </td>
-                                <td>
-                                    <img src="<?= base_url();?>upload/variants/<?=$row['icon']; ?>" height="50" width="50">
-                                </td>
-                                <td>
-                                         <span data-toggle="modal" data-target="#editModal">
-                                          <a class="btn btn-primary btn-sm updateUser" id="<?= $row['id']; ?>" name="updateMarks" data-toggle="tooltip" data-placement="top" title="Edit"><i class="fa fa-edit"></i></a>
-                                     </span>
-                                    <a href="" class="btn btn-danger btn-sm item_delete deleteUser" id="<?= $row['id']; ?>" data-toggle="tooltip" data-placement="top" title="Delete"><i class="fa fa-trash"></i></a>
-                                </td>
-                            </tr>
-                        <?php endforeach; ?>
+                        <!--                        --><?php //foreach ($result as $row): ?>
+                        <!--                            <tr class="text-center">-->
+                        <!--                                <td>-->
+                        <!--                                    <input type='checkbox' name='multi_del' class='multi_del' value="--><?//=$row['id']; ?><!--">-->
+                        <!--                                </td>-->
+                        <!--                                 <td>-->
+                        <!--                                    --><?//= $row['id']; ?>
+                        <!--                                </td>-->
+                        <!--                                <td>-->
+                        <!--                                    --><?//= $row['brand']; ?>
+                        <!--                                </td>-->
+                        <!--                                <td>-->
+                        <!--                                    --><?//= $row['model']; ?>
+                        <!--                                </td>-->
+                        <!--                                <td>-->
+                        <!--                                    --><?//= $row['varient']; ?>
+                        <!--                                </td>-->
+                        <!--                                <td>-->
+                        <!--                                    <img src="--><?//= base_url();?><!--upload/variants/--><?//=$row['icon']; ?><!--" height="50" width="50">-->
+                        <!--                                </td>-->
+                        <!--                                <td>-->
+                        <!--                                         <span data-toggle="modal" data-target="#editModal">-->
+                        <!--                                          <a class="btn btn-primary btn-sm updateUser" id="--><?//= $row['id']; ?><!--" name="updateMarks" data-toggle="tooltip" data-placement="top" title="Edit"><i class="fa fa-edit"></i></a>-->
+                        <!--                                     </span>-->
+                        <!--                                    <a href="" class="btn btn-danger btn-sm item_delete deleteUser" id="--><?//= $row['id']; ?><!--" data-toggle="tooltip" data-placement="top" title="Delete"><i class="fa fa-trash"></i></a>-->
+                        <!--                                </td>-->
+                        <!--                            </tr>-->
+                        <!--                        --><?php //endforeach; ?>
 
                         </tbody>
 
@@ -159,7 +159,14 @@
 
 <script>
     $(document).ready( function () {
-        $('#brand_table').DataTable();
+        $('#brand_table').DataTable({
+            'ajax': '<?= base_url('Product/get_variants')?>',
+              scrollY:        "500px",
+            // scrollX:        true,
+            scrollCollapse: true,
+            paging:         true,
+
+        });
 
 
         $.ajax({
@@ -273,7 +280,7 @@
                         showConfirmButton: false,
                         timer: 1000
                     });
-                    location.reload();
+                    $('#brand_table').DataTable().ajax.reload(null, false);
 
                 }
                 else{
@@ -285,8 +292,8 @@
             }
         });
     });
-    
-    $(".check_all").click(function(){
+
+    $(document).on('click','.check_all',function(){
         $('input:checkbox').not(this).prop('checked', this.checked);
         if($(".multi_del:checked").length > 0){
             $('#delete_multi').removeAttr("disabled","disabled");
@@ -334,7 +341,7 @@
                                 data.msg,
                                 'success'
                             );
-                            location.reload();
+                            $('#brand_table').DataTable().ajax.reload(null, false);
                         }
                     }
                 });
@@ -347,12 +354,13 @@
                 swalWithBootstrapButtons.fire(
                     'Cancelled',
                 )
-                location.reload();
+                $('#brand_table').DataTable().ajax.reload(null, false);
             }
         });
     });
-    
-    $(".multi_del").click(function() {
+
+    $(document).on('click','.multi_del',function() {
+
 
         if($(".multi_del:checked").length > 0){
             $('#delete_multi').removeAttr("disabled","disabled");
@@ -360,10 +368,10 @@
         else{
             $('#delete_multi').attr("disabled","disabled");
         }
-        
+
     });
-    
-     $(document).on('click','#delete_multi',function(e){
+
+    $(document).on('click','#delete_multi',function(e){
 
         e.preventDefault(e);
 
@@ -373,7 +381,7 @@
         });
 
 
-       
+
 
         let table_name = "cls_m_varient";
         let path = "./upload/models/";
@@ -408,7 +416,7 @@
                                 data.msg,
                                 'success'
                             );
-                            location.reload();
+                            $('#brand_table').DataTable().ajax.reload(null, false);
                         }
                     }
                 });
@@ -421,11 +429,11 @@
                 swalWithBootstrapButtons.fire(
                     'Cancelled',
                 )
-                location.reload();
+                $('#brand_table').DataTable().ajax.reload(null, false);
             }
-         });
-         
-    
+        });
+
+
     });
 
 

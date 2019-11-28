@@ -287,9 +287,9 @@
                     <th>Battery Issue</th>
                     <th>Speaker Issue</th>
                     <th>Mic Issue</th>
-                    <th>Volumn Issue</th>
+                    <th>Volume Issue</th>
                     <th>Charging Pin Issue</th>
-                    <th>Power Butttn Issue</th>
+                    <th>Power Button Issue</th>
                     <th>Finger Print Issue	</th>
                     <th>Face Recognition Issue</th>
                     <th>Device Condition</th>
@@ -317,201 +317,9 @@
 
                 </tr>
                 </thead>
-                <tbody>
+                <tbody class="text-center">
 
-                <?php foreach ($result as $row): ?>
-                    <tr class="text-center">
-                        <td>
-                                    <input type='checkbox' name='multi_del' class='multi_del' value="<?=$row['order_id']; ?>">
-                                
-                                </td>
-                        
-                        <td>
 
-                            <span data-toggle="modal" data-target="#editModal">
-                                          <a class="btn btn-primary btn-sm updateUser" id="<?= $row['order_id']; ?>" name="updateMarks" data-toggle="tooltip" data-placement="top" title="Edit"><i class="fa fa-eye"></i></a>
-                                     </span>
-                            <a href="" class="btn btn-danger btn-sm item_delete deleteUser" id="<?= $row['order_id']; ?>" data-toggle="tooltip" data-placement="top" title="Delete"><i class="fa fa-trash"></i></a>
-
-                        </td>
-                        <td>
-                            <div class="to-do-list">
-                                <div class="checkbox-fade fade-in-primary">
-                                    <label class="check-task">
-                                        <input type="checkbox" <?= ($row['is_cancel'] ==1) ? 'disabled' : '' ?> <?= ($row['placed'] ==0) ? 'disabled' : '' ?> name="processing" id="<?= $row['order_id']; ?>" value="" <?= ($row['processing'] == 1) ? 'checked' : '' ?>>
-                                        <span class="cr">
-                                            <i class="cr-icon icofont icofont-ui-check txt-primary"></i>
-                                         </span>
-                                    </label>
-                                </div>
-                            </div>
-                        </td>
-                        <td>
-                            <div class="to-do-list">
-                                <div class="checkbox-fade fade-in-primary">
-                                    <label class="check-task">
-                                        <input type="checkbox" <?= ($row['is_cancel'] ==1) ? 'disabled' : '' ?> <?= ($row['placed'] ==0) ? 'disabled' : '' ?> name="onpickup" id="<?= $row['order_id']; ?>" value="" <?= ($row['onpickup'] ==1) ? 'checked' : '' ?> >
-                                        <span class="cr">
-                                            <i class="cr-icon icofont icofont-ui-check txt-primary"></i>
-                                         </span>
-                                    </label>
-                                </div>
-                            </div>
-                        </td>
-                        <td>
-                            <div class="to-do-list">
-                                <div class="checkbox-fade fade-in-primary">
-                                    <label class="check-task">
-                                        <input type="checkbox" <?= ($row['is_cancel'] ==1) ? 'disabled' : '' ?> <?= ($row['placed'] ==0) ? 'disabled' : '' ?> name="completed" id="<?= $row['order_id']; ?>" value="" <?= ($row['completed'] ==1) ? 'checked' : '' ?> >
-                                        <span class="cr">
-                                            <i class="cr-icon icofont icofont-ui-check txt-primary"></i>
-                                         </span>
-                                    </label>
-                                </div>
-                            </div>
-                        </td>
-                        <td>
-                            <?= $row['full_name']; ?>
-                        </td>
-                        <td>
-                            <?= $row['mobile']; ?>
-                        </td>
-
-                        <td>
-                            <?= $row['order_number']; ?>
-                        </td>
-                        <td>
-                            <?= $row['created']; ?>
-                        </td>
-                        <td>
-                            <?= $row['mobile_title']; ?>
-                        </td>
-                        <td>
-                            <?= ($row['power_on'] == 1) ? 'Yes' : 'No'; ?>
-                        </td>
-                        <td>
-                            <?= ($row['box'] == 1) ? 'Yes' : 'No'; ?>
-                        </td>
-                        <td>
-                            <?= ($row['bill'] == 1) ? 'Yes' : 'No'; ?>
-                        </td>
-                        <td>
-                            <?= ($row['charger'] == 1) ? 'Yes' : 'No'; ?>
-                        </td>
-                        <td>
-                            <?= ($row['earphone'] == 1) ? 'Yes' : 'No'; ?>
-                        </td>
-                        <td>
-                            <?= $row['device_age']; ?>
-                        </td>
-                        <td>
-                            <?= ($row['glass_broken'] == 1) ? 'Yes' : 'No'; ?>
-                        </td>
-                        <td>
-                            <?= ($row['touch_issue'] == 1) ? 'Yes' : 'No'; ?>
-                        </td>
-                        <td>
-                            <?= ($row['front_camera_issue'] == 1) ? 'Yes' : 'No'; ?>
-                        </td>
-                        <td>
-                            <?= ($row['back_camera_issue'] == 1) ? 'Yes' : 'No'; ?>
-                        </td>
-                        <td>
-                            <?= ($row['wifi_issue'] == 1) ? 'Yes' : 'No'; ?>
-                        </td>
-                        <td>
-                            <?= ($row['battery_issue'] == 1) ? 'Yes' : 'No'; ?>
-                        </td>
-                        <td>
-                            <?= ($row['speaker_issue']== 1) ? 'Yes' : 'No'; ?>
-                        </td>
-                        <td>
-                            <?= ($row['mice_issue']== 1) ? 'Yes' : 'No'; ?>
-                        </td>
-                        <td>
-                            <?= ($row['volumn_issue']== 1) ? 'Yes' : 'No'; ?>
-                        </td>
-                        <td>
-                            <?= ($row['chargingpin_issue']== 1) ? 'Yes' : 'No'; ?>
-                        </td>
-                        <td>
-                            <?= ($row['power_btn_issue']== 1) ? 'Yes' : 'No'; ?>
-                        </td>
-                        <td>
-                            <?= ($row['finger_print_issue']== 1) ? 'Yes' : 'No'; ?>
-                        </td>
-                        <td>
-                            <?= ($row['face_recog_issue']== 1) ? 'Yes' : 'No'; ?>
-                        </td>
-                        <td>
-                            <?= $row['device_condition']; ?>
-                        </td>
-                        <td>
-                            <?= $row['address_type']; ?>
-                        </td>
-                        <td>
-                            <?= $row['address_first']; ?>
-                        </td>
-                        <td>
-                            <?= $row['address_second']; ?>
-                        </td>
-                        <td>
-                            <?= $row['locality']; ?>
-                        </td>
-                        <td>
-                            <?= $row['city']; ?>
-                        </td>
-                        <td>
-                            <?= $row['state']; ?>
-                        </td>
-                        <td>
-                            <?= $row['pincode']; ?>
-                        </td>
-                        <td>
-                            <?= $row['payment_type']; ?>
-                        </td>
-                        <td>
-                            <?= ($row['upi_id']== null) ? 'NA' : $row['upi_id']; ?>
-                        </td>
-                        <td>
-                            <?= ($row['account_no']== null) ? 'NA' : $row['account_no']; ?>
-                        </td>
-                        <td>
-                            <?= ($row['beneficiary_name']== null) ? 'NA' :$row['beneficiary_name']; ?>
-                        </td>
-                        <td>
-                            <?= ($row['ifsc_code']== null) ? 'NA' :$row['ifsc_code']; ?>
-                        </td>
-                        <td>
-                            <?= ($row['bank_name']== null) ? 'NA' :$row['bank_name']; ?>
-                        </td>
-                        <td>
-                            <?= $row['pickup_date']; ?>
-                        </td>
-                        <td>
-                            <?= $row['pickup_tme_slot']; ?>
-                        </td>
-                        <td>
-                            <?= $row['final_price']; ?>
-                        </td>
-                        <td>
-                            <?= ($row['referral_code']== null) ? 'NA' :$row['referral_code']; ?>
-                        </td>
-                        <td>
-                            <?= ($row['comment']== null) ? 'NA' :$row['comment']; ?>
-                        </td>
-                        <td>
-                            <?= ($row['placed']== 1) ? 'Yes' : 'No'; ?>
-                        </td>
-
-                        <td>
-                            <?= ($row['is_cancel']== 1) ? 'Yes' : 'No'; ?>
-                        </td>
-                        <td>
-                            <?= $row['cancel_time']; ?>
-                        </td>
-                    </tr>
-                <?php endforeach; ?>
                 </tbody>
             </table>
 
@@ -525,20 +333,32 @@
 <script>
     $(document).ready(function(){
 
-        $('#order_table').DataTable({
-            responsive: true,
-            "lengthChange": true,
+         $('#order_table').DataTable({
+            ajax: "<?= base_url('Product/get_orders');?>",
+            scrollY:        "500px",
+            scrollX:        true,
+            scrollCollapse: true,
+            paging:         true,
+
             dom: 'lBfrtip',
             buttons: [
                 'copy', 'excel', 'pdf', 'print'
             ],
-            initComplete: (settings, json)=>{
-                $('.dataTables_paginate').appendTo('#test');
-            },
+            "fnRowCallback": function(nRow, aData, iDisplayIndex, iDisplayIndexFull) {
+                if (aData[48] === "No") {
+                    $('td', nRow).css('background-color', '#ffeb99');
+                }
+                else if (aData[49] === "Yes") {
+                    $('td', nRow).css('background-color', '#ffad99');
+                }
+            }
+            // initComplete: (settings, json)=>{
+            //     $('.dataTables_paginate').appendTo('#test');
+            // },
         });
     });
 
-    $('input[name="processing"]').click(function(){
+    $(document).on('click','.processing',function(){
 
         let id = $(this).attr('id');
 
@@ -561,7 +381,8 @@
                         showConfirmButton: false,
                                 timer: 1000
                             });
-                            location.reload();
+                            $('#order_table').DataTable().ajax.reload(null, false);
+
                         }
                     }
                 });
@@ -585,7 +406,7 @@
                         showConfirmButton: false,
                                 timer: 1000
                             });
-                            location.reload();
+                            $('#order_table').DataTable().ajax.reload(null, false);
 
                         }
                     }
@@ -600,7 +421,7 @@
 
     });
 
-    $('input[name="onpickup"]').click(function(){
+    $(document).on('click','.onpickup',function(){
 
         let id = $(this).attr('id');
 
@@ -625,7 +446,7 @@
                             showConfirmButton: false,
                                 timer: 1000
                             });
-                            location.reload();
+                            $('#order_table').DataTable().ajax.reload(null, false);
                         }
                     }
                 });
@@ -650,7 +471,7 @@
                         showConfirmButton: false,
                                 timer: 1000
                             });
-                            location.reload();
+                            $('#order_table').DataTable().ajax.reload(null, false);
                         }
                     }
                 });
@@ -663,7 +484,7 @@
 
     });
 
-    $('input[name="completed"]').click(function(){
+    $(document).on('click','.completed', function(){
 
         let id = $(this).attr('id');
 
@@ -689,7 +510,7 @@
                                 timer: 1000
                             });
 
-                            location.reload();
+                            $('#order_table').DataTable().ajax.reload(null, false);
 
                         }
                     }
@@ -717,7 +538,7 @@
                                 timer: 1000
                             });
 
-                            location.reload();
+                            $('#order_table').DataTable().ajax.reload(null, false);
                         }
                     }
                 });
@@ -730,8 +551,8 @@
 
 
     });
-    
-    
+
+
  $(document).on('click','.updateUser',function(){
 
         var id = $(this).attr("id");
@@ -798,7 +619,7 @@
         });
     });
     
-    $(".multi_del").click(function() {
+    $(document).on('click','.multi_del', function() {
 
         if($(".multi_del:checked").length > 0){
             $('#delete_multi').removeAttr("disabled","disabled");
@@ -809,7 +630,7 @@
         
     });
     
-    $(".check_all").click(function(){
+    $(document).on('click','.check_all', function(){
         $('.multi_del').not(this).prop('checked', this.checked);
         if($(".multi_del:checked").length > 0){
             $('#delete_multi').removeAttr("disabled","disabled");
@@ -864,7 +685,7 @@
                                 data.msg,
                                 'success'
                             );
-                            location.reload();
+                            $('#order_table').DataTable().ajax.reload(null, false);
                         }
                     }
                 });
@@ -877,7 +698,7 @@
                 swalWithBootstrapButtons.fire(
                     'Cancelled',
                 )
-                location.reload();
+                $('#order_table').DataTable().ajax.reload(null, false);
             }
          });
          
@@ -920,7 +741,7 @@
                                 data.msg,
                                 'success'
                             );
-                            location.reload();
+                            $('#order_table').DataTable().ajax.reload(null, false);
                         }
                     }
                 });
@@ -933,7 +754,7 @@
                 swalWithBootstrapButtons.fire(
                     'Cancelled',
                 )
-                location.reload();
+                $('#order_table').DataTable().ajax.reload(null, false);
             }
         });
     });

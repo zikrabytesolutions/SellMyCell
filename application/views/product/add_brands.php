@@ -7,7 +7,7 @@
             <div class="card-header">
                 <div class="row">
                     <div class="col-sm-6">
-                        <h5>Add Brands</h5>
+                        <h4>Add Brands</h4>
                     </div>
 
                     <div class="col-sm-6 text-right">

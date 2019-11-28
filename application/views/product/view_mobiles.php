@@ -287,7 +287,7 @@
 
                 <div class="row">
                     <div class="col-md-7">
-                        <h5>Mobiles</h5>
+                        <h4>Mobiles</h4>
                     </div>
                     <div class="col-md-5">
                         <div class="row">
@@ -313,7 +313,7 @@
 
                             </th>
                             <th>Action</th>
-                            <th>Mobile Id</th>
+                            <th>Icon</th>
                             <th>Brand</th>
                             <th>Model</th>
                             <th>Variant</th>
@@ -321,7 +321,7 @@
                             <th>Processor</th>
                             <th>Ram</th>
                             <th>Internal Memory</th>
-                            <th>Icon</th>
+                            
                             <th>Base Price</th>
                             <th>Box (NA)</th>
                             <th>Bill (NA)</th>
@@ -350,129 +350,129 @@
                             <th>Looking Average_below</th>
                         </tr>
                         </thead>
-                        <tbody>
+                        <tbody class="text-center">
 
-                        <?php foreach ($result as $row): ?>
-                            <tr class="text-center">
-                                <td>
-                                    <input type='checkbox' name='multi_del' class='multi_del' value="<?=$row['mobile_id']; ?>">
-                                </td>
-
-                                <td>
-                                         <span data-toggle="modal" data-target="#editModal">
-                                          <a class="btn btn-primary btn-sm updateUser" id="<?= $row['mobile_id']; ?>" name="updateMarks" data-toggle="tooltip" data-placement="top" title="Edit"><i class="fa fa-edit"></i></a>
-                                     </span>
-                                    <a href="" class="btn btn-danger btn-sm item_delete deleteUser" id="<?= $row['mobile_id']; ?>" data-toggle="tooltip" data-placement="top" title="Delete"><i class="fa fa-trash"></i></a>
-                                </td>
-                                <td>
-                                    <?= $row['mobile_id']; ?>
-                                </td>
-                                <td>
-                                    <?= $row['brand']; ?>
-                                </td>
-                                <td>
-                                    <?= $row['model']; ?>
-                                </td>
-                                <td>
-                                    <?= $row['varient']; ?>
-                                </td>
-                                <td>
-                                    <?= $row['mobile_title']; ?>
-                                </td>
-                                <td>
-                                    <?= $row['processor']; ?>
-                                </td>
-                                <td>
-                                    <?= $row['ram_size']; ?>
-                                </td>
-                                <td>
-                                    <?= $row['internal_memory']; ?>
-                                </td>
-                                <td>
-                                    <img src="<?= base_url();?>upload/mobiles/<?=$row['mobile_img']; ?>" height="50" width="50">
-                                </td>
-                                <td>
-                                    <?= $row['like_new']; ?>
-                                </td>
-                                <td>
-                                    <?= $row['box_na']; ?>
-                                </td>
-                                <td>
-                                    <?= $row['bill_na']; ?>
-                                </td>
-                                <td>
-                                    <?= $row['charger_na']; ?>
-                                </td>
-                                <td>
-                                    <?= $row['earphone_na']; ?>
-                                </td>
-                                <td>
-                                    <?= $row['warranty_below_3']; ?>
-                                </td>
-                                <td>
-                                    <?= $row['warranty_3_6']; ?>
-                                </td>
-                                <td>
-                                    <?= $row['warranty_6_11']; ?>
-                                </td>
-                                <td>
-                                    <?= $row['warranty_above_11']; ?>
-                                </td>
-                                <td>
-                                    <?= $row['glass_broke']; ?>
-                                </td>
-                                <td>
-                                    <?= $row['display_crack']; ?>
-                                </td>
-                                <td>
-                                    <?= $row['front_camera_fault']; ?>
-                                </td>
-                                <td>
-                                    <?= $row['back_camera_fault']; ?>
-                                </td>
-                                <td>
-                                    <?= $row['battery_fault']; ?>
-                                </td>
-                                <td>
-                                    <?= $row['wifi_fault']; ?>
-                                </td>
-                                <td>
-                                    <?= $row['speaker_fault']; ?>
-                                </td>
-                                <td>
-                                    <?= $row['mic_fault']; ?>
-                                </td>
-                                <td>
-                                    <?= $row['volumn_btn_fault']; ?>
-                                </td>
-                                <td>
-                                    <?= $row['charging_fault']; ?>
-                                </td>
-                                <td>
-                                    <?= $row['power_button_fault']; ?>
-                                </td>
-                                <td>
-                                    <?= $row['fingerprint_fault']; ?>
-                                </td>
-                                <td>
-                                    <?= $row['face_recog_fault']; ?>
-                                </td>
-                                <td>
-                                    <?= $row['looking_new']; ?>
-                                </td>
-                                <td>
-                                    <?= $row['looking_good']; ?>
-                                </td>
-                                <td>
-                                    <?= $row['looking_average']; ?>
-                                </td>
-                                <td>
-                                    <?= $row['looking_average_below']; ?>
-                                </td>
-
-
-                            </tr>
-                        <?php endforeach; ?>
+<!--                        --><?php //foreach ($result as $row): ?>
+<!--                            <tr class="text-center">-->
+<!--                                <td>-->
+<!--                                    <input type='checkbox' name='multi_del' class='multi_del' value="--><?//=$row['mobile_id']; ?><!--">-->
+<!--                                </td>-->
+<!---->
+<!--                                <td>-->
+<!--                                         <span data-toggle="modal" data-target="#editModal">-->
+<!--                                          <a class="btn btn-primary btn-sm updateUser" id="--><?//= $row['mobile_id']; ?><!--" name="updateMarks" data-toggle="tooltip" data-placement="top" title="Edit"><i class="fa fa-edit"></i></a>-->
+<!--                                     </span>-->
+<!--                                    <a href="" class="btn btn-danger btn-sm item_delete deleteUser" id="--><?//= $row['mobile_id']; ?><!--" data-toggle="tooltip" data-placement="top" title="Delete"><i class="fa fa-trash"></i></a>-->
+<!--                                </td>-->
+<!--                                <td>-->
+<!--                                    --><?//= $row['mobile_id']; ?>
+<!--                                </td>-->
+<!--                                <td>-->
+<!--                                    --><?//= $row['brand']; ?>
+<!--                                </td>-->
+<!--                                <td>-->
+<!--                                    --><?//= $row['model']; ?>
+<!--                                </td>-->
+<!--                                <td>-->
+<!--                                    --><?//= $row['varient']; ?>
+<!--                                </td>-->
+<!--                                <td>-->
+<!--                                    --><?//= $row['mobile_title']; ?>
+<!--                                </td>-->
+<!--                                <td>-->
+<!--                                    --><?//= $row['processor']; ?>
+<!--                                </td>-->
+<!--                                <td>-->
+<!--                                    --><?//= $row['ram_size']; ?>
+<!--                                </td>-->
+<!--                                <td>-->
+<!--                                    --><?//= $row['internal_memory']; ?>
+<!--                                </td>-->
+<!--                                <td>-->
+<!--                                    <img src="--><?//= base_url();?><!--upload/mobiles/--><?//=$row['mobile_img']; ?><!--" height="50" width="50">-->
+<!--                                </td>-->
+<!--                                <td>-->
+<!--                                    --><?//= $row['like_new']; ?>
+<!--                                </td>-->
+<!--                                <td>-->
+<!--                                    --><?//= $row['box_na']; ?>
+<!--                                </td>-->
+<!--                                <td>-->
+<!--                                    --><?//= $row['bill_na']; ?>
+<!--                                </td>-->
+<!--                                <td>-->
+<!--                                    --><?//= $row['charger_na']; ?>
+<!--                                </td>-->
+<!--                                <td>-->
+<!--                                    --><?//= $row['earphone_na']; ?>
+<!--                                </td>-->
+<!--                                <td>-->
+<!--                                    --><?//= $row['warranty_below_3']; ?>
+<!--                                </td>-->
+<!--                                <td>-->
+<!--                                    --><?//= $row['warranty_3_6']; ?>
+<!--                                </td>-->
+<!--                                <td>-->
+<!--                                    --><?//= $row['warranty_6_11']; ?>
+<!--                                </td>-->
+<!--                                <td>-->
+<!--                                    --><?//= $row['warranty_above_11']; ?>
+<!--                                </td>-->
+<!--                                <td>-->
+<!--                                    --><?//= $row['glass_broke']; ?>
+<!--                                </td>-->
+<!--                                <td>-->
+<!--                                    --><?//= $row['display_crack']; ?>
+<!--                                </td>-->
+<!--                                <td>-->
+<!--                                    --><?//= $row['front_camera_fault']; ?>
+<!--                                </td>-->
+<!--                                <td>-->
+<!--                                    --><?//= $row['back_camera_fault']; ?>
+<!--                                </td>-->
+<!--                                <td>-->
+<!--                                    --><?//= $row['battery_fault']; ?>
+<!--                                </td>-->
+<!--                                <td>-->
+<!--                                    --><?//= $row['wifi_fault']; ?>
+<!--                                </td>-->
+<!--                                <td>-->
+<!--                                    --><?//= $row['speaker_fault']; ?>
+<!--                                </td>-->
+<!--                                <td>-->
+<!--                                    --><?//= $row['mic_fault']; ?>
+<!--                                </td>-->
+<!--                                <td>-->
+<!--                                    --><?//= $row['volumn_btn_fault']; ?>
+<!--                                </td>-->
+<!--                                <td>-->
+<!--                                    --><?//= $row['charging_fault']; ?>
+<!--                                </td>-->
+<!--                                <td>-->
+<!--                                    --><?//= $row['power_button_fault']; ?>
+<!--                                </td>-->
+<!--                                <td>-->
+<!--                                    --><?//= $row['fingerprint_fault']; ?>
+<!--                                </td>-->
+<!--                                <td>-->
+<!--                                    --><?//= $row['face_recog_fault']; ?>
+<!--                                </td>-->
+<!--                                <td>-->
+<!--                                    --><?//= $row['looking_new']; ?>
+<!--                                </td>-->
+<!--                                <td>-->
+<!--                                    --><?//= $row['looking_good']; ?>
+<!--                                </td>-->
+<!--                                <td>-->
+<!--                                    --><?//= $row['looking_average']; ?>
+<!--                                </td>-->
+<!--                                <td>-->
+<!--                                    --><?//= $row['looking_average_below']; ?>
+<!--                                </td>-->
+<!---->
+<!---->
+<!--                            </tr>-->
+<!--                        --><?php //endforeach; ?>
 
                         </tbody>
 
@@ -493,6 +493,13 @@
     $(document).ready( function () {
 
         $('#brand_table').DataTable({
+            ajax: "<?= base_url('Product/get_mobiles'); ?>",
+            scrollY: "500px",
+             scrollX:        true,
+            scrollCollapse: true,
+            paging:         true,
+            // "processing": true,
+            // "serverSide": true,
             responsive: true,
             "lengthChange": true,
             dom: 'lfrtip',
@@ -716,8 +723,9 @@
                         text: "Record updated successfully",
                         showCancelButton: false,
                         showConfirmButton: false,
+                        timer: 1000
                     });
-                    location.reload();
+                    $('#brand_table').DataTable().ajax.reload(null, false);
 
                 }
                 else{
@@ -778,7 +786,7 @@
                                 data.msg,
                                 'success'
                             );
-                            location.reload();
+                            $('#brand_table').DataTable().ajax.reload(null, false);
                         }
                     }
                 });
@@ -791,12 +799,12 @@
                 swalWithBootstrapButtons.fire(
                     'Cancelled',
                 )
-                location.reload();
+                $('#brand_table').DataTable().ajax.reload(null, false);
             }
         });
     });
     
-    $(".multi_del").click(function() {
+    $(document).on('click','.multi_del', function() {
 
         if($(".multi_del:checked").length > 0){
             $('#delete_multi').removeAttr("disabled","disabled");
@@ -851,7 +859,7 @@
                                 data.msg,
                                 'success'
                             );
-                            location.reload();
+                            $('#brand_table').DataTable().ajax.reload(null, false);
                         }
                     }
                 });
@@ -864,7 +872,7 @@
                 swalWithBootstrapButtons.fire(
                     'Cancelled',
                 )
-                location.reload();
+                $('#brand_table').DataTable().ajax.reload(null, false);
             }
         });
         

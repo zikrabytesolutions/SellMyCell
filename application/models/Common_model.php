@@ -188,6 +188,7 @@ class Common_model extends CI_Model
         $this->db->join('cls_m_model', 'cls_m_varient.model_id = cls_m_model.id');
         $this->db->join('cls_m_brand', 'cls_m_model.brand_id = cls_m_brand.id');
         $this->db->join('cls_m_pricing', 'cls_m_mobile.id = cls_m_pricing.mobile_id');
+        $this->db->order_by('cls_m_brand.id', 'asc');
 
         $query = $this->db->get();
         return $query->result_array();

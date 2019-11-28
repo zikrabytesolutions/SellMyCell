@@ -8,7 +8,7 @@
 
                 <div class="row">
                     <div class="col-sm-6">
-                        <h5>Users</h5>
+                        <h4>Users</h4>
                     </div>
 <!--                    <div class="col-sm-6 text-right">-->
 <!--                        <a href="--><?//= base_url('Location/add_pincode');?><!--" class="btn btn-primary">Add New Pincode</a>-->

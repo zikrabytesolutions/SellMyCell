@@ -320,7 +320,7 @@
                     <th>Order Number</th>
                     <th>Created</th>
                     <th>Mobile</th>
-                    <th>Power_on</th>
+                    <th>Power On</th>
                     <th>Box</th>
                     <th>Bill</th>
                     <th>Charger</th>
@@ -572,6 +572,10 @@
         var test = $('#order_table').DataTable({
             responsive: true,
             "lengthChange": false,
+            scrollY: "500px",
+            scrollX:        true,
+            scrollCollapse: true,
+            paging:         true,
             dom: 'Bfrtip',
             buttons: [
                 'copy', 'excel', 'pdf', 'print'
@@ -579,6 +583,14 @@
             initComplete: (settings, json)=>{
                 $('.dataTables_paginate').appendTo('#test');
             },
+            "fnRowCallback": function(nRow, aData, iDisplayIndex, iDisplayIndexFull) {
+                if (aData[47] === "No") {
+                    $('td', nRow).css('background-color', '#ffeb99');
+                }
+                else if (aData[48] === "Yes") {
+                    $('td', nRow).css('background-color', '#ffad99');
+                }
+            }
         });
 
     });
