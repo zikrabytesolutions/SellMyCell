@@ -3,14 +3,14 @@
         <div class="pcoded-navigatio-lavel">Navigation</div>
         <ul class="pcoded-item pcoded-left-item">
             <li id="l_dashboard" class="">
-                <a href="<?= base_url('Product'); ?>">
+                <a href="<?= base_url('product'); ?>">
                     <span class="pcoded-micon"><i class="feather icon-home"></i></span>
                     <span class="pcoded-mtext">Dashboard</span>
                 </a>
             </li>
             
             <li id="l_order" class="">
-                <a href="<?= base_url('Product/view_orders'); ?>">
+                <a href="<?= base_url('product/view_orders'); ?>">
                     <span class="pcoded-micon"><i class="feather icon-shopping-cart"></i></span>
                     <span class="pcoded-mtext">Orders</span>
                 </a>
@@ -23,22 +23,22 @@
                 </a>
                 <ul class="pcoded-submenu">
                     <li id="l_brand" class=" ">
-                        <a href="<?= base_url('Product/view_brands'); ?>">
+                        <a href="<?= base_url('product/view_brands'); ?>">
                             <span class="pcoded-mtext">Brands</span>
                         </a>
                     </li>
                     <li id="l_model" class=" ">
-                        <a href="<?= base_url('Product/view_models'); ?>">
+                        <a href="<?= base_url('product/view_models'); ?>">
                             <span class="pcoded-mtext">Model</span>
                         </a>
                     </li>
                     <li id="l_variant" class=" ">
-                        <a href="<?= base_url('Product/view_variants'); ?>">
+                        <a href="<?= base_url('product/view_variants'); ?>">
                             <span class="pcoded-mtext">Variant</span>
                         </a>
                     </li>
                     <li id="l_mobile" class=" ">
-                        <a href="<?= base_url('Product/view_mobiles'); ?>">
+                        <a href="<?= base_url('product/view_mobiles'); ?>">
                             <span class="pcoded-mtext">Mobile</span>
                         </a>
                     </li>
@@ -54,7 +54,7 @@
                 </a>
                 <ul class="pcoded-submenu">
                     <li id="l_view_user" class=" ">
-                        <a href="<?= base_url('Location/view_users'); ?>">
+                        <a href="<?= base_url('location/view_users'); ?>">
                             <span class="pcoded-mtext">View Users</span>
                         </a>
                     </li>
@@ -71,18 +71,18 @@
                 </a>
                 <ul class="pcoded-submenu">
                     <li id="l_state" class=" ">
-                        <a href="<?= base_url('Location/view_states'); ?>">
+                        <a href="<?= base_url('location/view_states'); ?>">
                             <span class="pcoded-mtext">State</span>
                         </a>
                     </li>
                     <li id="l_city" class=" ">
-                        <a href="<?= base_url('Location/view_cities'); ?>">
+                        <a href="<?= base_url('location/view_cities'); ?>">
                             <span class="pcoded-mtext">City</span>
                         </a>
                     </li>
 
                     <li id="l_pincode" class=" ">
-                        <a href="<?= base_url('Location/view_pincodes'); ?>">
+                        <a href="<?= base_url('location/view_pincodes'); ?>">
                             <span class="pcoded-mtext">Pincode</span>
                         </a>
                     </li>
@@ -91,7 +91,7 @@
             </li>
 
             <li id="l_banner" class="">
-                <a href="<?= base_url('Product/view_banners'); ?>">
+                <a href="<?= base_url('product/view_banners'); ?>">
                     <span class="pcoded-micon"><i class="feather icon-image"></i></span>
                     <span class="pcoded-mtext">Banners</span>
                 </a>

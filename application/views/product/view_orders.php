@@ -247,21 +247,21 @@
 <div class="row">
     <div class="col-sm-12">
         <div class="row">
-                    <div class="col-sm-6">
-                        <h4>Orders</h4>
-                    </div>
-                     <div class="col-sm-6 text-right">
-                        <button class="btn btn-danger" id="delete_multi" disabled>Delete Selected</button>
-                    </div>
-                
-                </div>
+            <div class="col-sm-6">
+                <h4>Orders</h4>
+            </div>
+            <div class="col-sm-6 text-right">
+                <button class="btn btn-danger" id="delete_multi" disabled>Delete Selected</button>
+            </div>
+
+        </div>
         <div class="dt-responsive table-responsive">
 
             <table id="order_table" class="table table-striped table-bordered nowrap">
                 <thead>
                 <tr>
                     <th>
-                                <input type='checkbox' name='check_all' class='check_all'">
+                        <input type='checkbox' name='check_all' class='check_all'">
 
                     </th>
                     <th>Action</th>
@@ -333,7 +333,7 @@
 <script>
     $(document).ready(function(){
 
-         $('#order_table').DataTable({
+        $('#order_table').DataTable({
             ajax: "<?= base_url('Product/get_orders');?>",
             scrollY:        "500px",
             scrollX:        true,
@@ -378,7 +378,7 @@
                             Swal.fire({
                                 text: "Record updated successfully",
                                 showCancelButton: false,
-                        showConfirmButton: false,
+                                showConfirmButton: false,
                                 timer: 1000
                             });
                             $('#order_table').DataTable().ajax.reload(null, false);
@@ -403,7 +403,7 @@
                             Swal.fire({
                                 text: "Record updated successfully",
                                 showCancelButton: false,
-                        showConfirmButton: false,
+                                showConfirmButton: false,
                                 timer: 1000
                             });
                             $('#order_table').DataTable().ajax.reload(null, false);
@@ -441,9 +441,9 @@
                             Swal.fire({
                                 text: "Record updated successfully",
                                 showCancelButton: false,
-                        showConfirmButton: false,
+                                showConfirmButton: false,
                                 showCancelButton: false,
-                            showConfirmButton: false,
+                                showConfirmButton: false,
                                 timer: 1000
                             });
                             $('#order_table').DataTable().ajax.reload(null, false);
@@ -468,7 +468,7 @@
                             Swal.fire({
                                 text: "Record updated successfully",
                                 showCancelButton: false,
-                        showConfirmButton: false,
+                                showConfirmButton: false,
                                 timer: 1000
                             });
                             $('#order_table').DataTable().ajax.reload(null, false);
@@ -506,7 +506,7 @@
                             Swal.fire({
                                 text: "Record updated successfully",
                                 showCancelButton: false,
-                        showConfirmButton: false,
+                                showConfirmButton: false,
                                 timer: 1000
                             });
 
@@ -534,7 +534,7 @@
                             Swal.fire({
                                 text: "Record updated successfully",
                                 showCancelButton: false,
-                        showConfirmButton: false,
+                                showConfirmButton: false,
                                 timer: 1000
                             });
 
@@ -553,7 +553,7 @@
     });
 
 
- $(document).on('click','.updateUser',function(){
+    $(document).on('click','.updateUser',function(){
 
         var id = $(this).attr("id");
 
@@ -618,7 +618,7 @@
             }
         });
     });
-    
+
     $(document).on('click','.multi_del', function() {
 
         if($(".multi_del:checked").length > 0){
@@ -627,9 +627,9 @@
         else{
             $('#delete_multi').attr("disabled","disabled");
         }
-        
+
     });
-    
+
     $(document).on('click','.check_all', function(){
         $('.multi_del').not(this).prop('checked', this.checked);
         if($(".multi_del:checked").length > 0){
@@ -639,8 +639,8 @@
             $('#delete_multi').attr("disabled","disabled");
         }
     });
-    
-     $(document).on('click','#delete_multi',function(e){
+
+    $(document).on('click','#delete_multi',function(e){
 
         e.preventDefault(e);
 
@@ -648,8 +648,8 @@
         $.each($("input[name='multi_del']:checked"), function(){
             id.push($(this).val());
         });
-        
-    
+
+
 
 
         let table_name = "cls_order";
@@ -700,10 +700,10 @@
                 )
                 $('#order_table').DataTable().ajax.reload(null, false);
             }
-         });
-         
+        });
+
     });
-    
+
     $(document).on('click','.deleteUser',function(e){
 
         e.preventDefault(e);

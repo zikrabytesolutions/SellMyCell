@@ -318,4 +318,14 @@ class Common_model extends CI_Model
 
         return $query->result_array();
     }
+
+    function fetch_notification(){
+        $this->db->where('cls_order.is_deleted',0);
+        $this->db->where('cls_order.is_view',0);
+        $this->db->where('cls_order.is_cancel',0);
+        $this->db->where('cls_order.placed',1);
+
+        $query = $this->db->get('cls_order');
+        return $query->num_rows();
+    }
 }

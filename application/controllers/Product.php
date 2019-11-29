@@ -1470,7 +1470,8 @@ class Product extends MY_Controller {
 
         if($status == 1){
             $data=array(
-                'processing' => $status
+                'processing' => $status,
+                'is_view' => 1
             );
         }
 
@@ -1478,7 +1479,8 @@ class Product extends MY_Controller {
             $data=array(
                 'processing' => $status,
                 'onpickup' => 0,
-                'completed' => 0
+                'completed' => 0,
+                'is_view' => 1
             );
         }
 
@@ -1503,13 +1505,15 @@ class Product extends MY_Controller {
             $data=array(
                 'onpickup' => $status,
                 'processing' => 1,
+                'is_view' => 1
             );
         }
 
         else if($status == 0){
             $data=array(
                 'onpickup' => $status,
-                'completed' => 0
+                'completed' => 0,
+                'is_view' => 1
             );
         }
 
@@ -1534,6 +1538,7 @@ class Product extends MY_Controller {
             'completed' => $status,
             'processing' => 1,
             'onpickup' => 1,
+            'is_view' => 1
         );
 
         $result = $this->Common_model->update('id',$id,'cls_order',$data);
@@ -1824,6 +1829,12 @@ class Product extends MY_Controller {
 
             echo json_encode($data);
         }
+    }
+
+    public function fetch_notification(){
+
+        $data['total_order'] = $this->Common_model->fetch_notification();
+        echo json_encode($data);
     }
 
 
