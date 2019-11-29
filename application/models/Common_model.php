@@ -311,4 +311,11 @@ class Common_model extends CI_Model
         $query = $this->db->get();
         return $query->row_array();
     }
+    
+    function fetch_time_slot(){
+        $this->db->order_by('slot_date','desc');
+        $query=$this->db->get('cls_time_slot');
+
+        return $query->result_array();
+    }
 }

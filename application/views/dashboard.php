@@ -424,7 +424,7 @@
                             <?= $row['order_number']; ?>
                         </td>
                         <td>
-                            <?= $row['created']; ?>
+                            <?= date("d-M-Y h:i A", strtotime($row['created'])); ?>
                         </td>
                         <td>
                             <?= $row['mobile_title']; ?>

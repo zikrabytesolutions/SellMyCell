@@ -75,9 +75,9 @@ $query_builder = TRUE;
 
 $db['default'] = array(
 	'dsn'	=> '',
-	'hostname' => 'localhost',
-	'username' => 'root',
-	'password' => '',
+	'hostname' => 'localhost:3306',
+	'username' => 'sellmyce_user',
+	'password' => 'BnAl#]g7FGc7',
 	'database' => 'sellmyce_data',
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',

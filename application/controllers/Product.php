@@ -1404,8 +1404,8 @@ class Product extends MY_Controller {
             $sub_array[]= $row['full_name'];
             $sub_array[]= $row['mobile'];
             $sub_array[]= $row['order_number'];
-            $sub_array[]= $row['created'];
-            $sub_array[]= $row['created'];
+            $sub_array[]= date("d-M-Y h:i A", strtotime($row['created']));
+            $sub_array[]= $row['mobile_title'];
             $sub_array[]= ($row['power_on'] == 1) ? 'Yes' : 'No';
             $sub_array[]= ($row['box'] == 1) ? 'Yes' : 'No';
             $sub_array[]= ($row['bill'] == 1) ? 'Yes' : 'No';
@@ -1615,8 +1615,19 @@ class Product extends MY_Controller {
     }
 
     public function insert_timeslot(){
-
-
+        
+        $this->form_validation->set_rules('slot_date', 'Date', 'is_unique[cls_time_slot.slot_date]');
+        
+        if ($this->form_validation->run() == FALSE){
+            $data=array(
+                'error'=> 1,
+                'msg'=> "Duplicate Entry"
+            );
+            echo json_encode($data);
+        }
+        else
+        {
+        
         $data=array(
             'slot_date' => $this->input->post('slot_date'),
             'time_9_12'=> $this->input->post('time_9_12')?'1':'0',
@@ -1643,7 +1654,176 @@ class Product extends MY_Controller {
             );
             echo json_encode($data);
         }
+        }
 
+    }
+    
+    public function get_time_slot(){
+        $result=$this->Common_model->fetch_time_slot();
+        $data=array();
+        foreach($result as $row){
+            $sub_array=array();
+
+            $check1 = '';
+            $check2 = '';
+            $check3 = '';
+
+            if($row['time_9_12'] == 1){
+                $check1 = 'checked';
+            }
+            if($row['time_12_3'] == 1){
+                $check2 = 'checked';
+            }
+
+            if($row['time_3_6'] == 1){
+                $check3 = 'checked';
+            }
+
+
+            $sub_array[]='<td>
+                                    <input type="checkbox" name="multi_del" class="multi_del" value="'.$row['id'] .'">
+                                
+                         </td>';
+            $sub_array[]=date("d-M-Y", strtotime($row['slot_date']));
+
+            $sub_array[]='<td>
+                            <div class="to-do-list">
+                            <div class="checkbox-fade fade-in-primary">
+                                <label class="check-task">
+                                        <input type="checkbox"  class="time_9_12" name="time_9_12" id="'. $row['id'] .'" value="" '.$check1.'>
+                                        <span class="cr">
+                                            <i class="cr-icon icofont icofont-ui-check txt-primary"></i>
+                                         </span>
+                                </label>
+                            </div>
+                            </div>
+                            </td>';
+            $sub_array[]='<td>
+                            <div class="to-do-list">
+                            <div class="checkbox-fade fade-in-primary">
+                                <label class="check-task">
+                                        <input type="checkbox"  class="time_12_3" name="time_12_3" id="'. $row['id'] .'" value="" '.$check2.'>
+                                        <span class="cr">
+                                            <i class="cr-icon icofont icofont-ui-check txt-primary"></i>
+                                         </span>
+                                </label>
+                            </div>
+                            </div>
+                            </td>';
+            $sub_array[]='<td>
+                            <div class="to-do-list">
+                            <div class="checkbox-fade fade-in-primary">
+                                <label class="check-task">
+                                        <input type="checkbox"  class="time_3_6" name="time_3_6" id="'. $row['id'] .'" value="" '.$check3.'>
+                                        <span class="cr">
+                                            <i class="cr-icon icofont icofont-ui-check txt-primary"></i>
+                                         </span>
+                                </label>
+                            </div>
+                            </div>
+                            </td>';
+
+
+            $sub_array[]='<td>
+
+                            <a href="" class="btn btn-danger btn-sm item_delete deleteUser" id="'.$row['id'].'" data-toggle="tooltip" data-placement="top" title="Delete"><i class="fa fa-trash"></i></a>
+
+                        </td>';
+
+
+            $data[]=$sub_array;
+        }
+        $output = array(
+            "data"              => $data
+        ) ;
+        echo json_encode($output);
+    }
+
+    public function update_time_9_12(){
+        $id = $this->input->post('id');
+        $status= $this->input->post('status');
+
+        if($status == 1){
+            $data=array(
+                'time_9_12' => $status
+            );
+        }
+
+        else if($status == 0){
+            $data=array(
+                'time_9_12' => $status,
+            );
+        }
+
+
+        $result = $this->Common_model->update('id',$id,'cls_time_slot',$data);
+
+        if ($result) {
+            $data = array(
+                'error' => 0,
+                'msg' => "Record Updated Successfully"
+            );
+
+            echo json_encode($data);
+        }
+    }
+
+    public function update_time_12_3(){
+        $id = $this->input->post('id');
+        $status= $this->input->post('status');
+
+        if($status == 1){
+            $data=array(
+                'time_12_3' => $status
+            );
+        }
+
+        else if($status == 0){
+            $data=array(
+                'time_12_3' => $status,
+            );
+        }
+
+
+        $result = $this->Common_model->update('id',$id,'cls_time_slot',$data);
+
+        if ($result) {
+            $data = array(
+                'error' => 0,
+                'msg' => "Record Updated Successfully"
+            );
+
+            echo json_encode($data);
+        }
+    }
+
+    public function update_time_3_6(){
+        $id = $this->input->post('id');
+        $status= $this->input->post('status');
+
+        if($status == 1){
+            $data=array(
+                'time_3_6' => $status
+            );
+        }
+
+        else if($status == 0){
+            $data=array(
+                'time_3_6' => $status,
+            );
+        }
+
+
+        $result = $this->Common_model->update('id',$id,'cls_time_slot',$data);
+
+        if ($result) {
+            $data = array(
+                'error' => 0,
+                'msg' => "Record Updated Successfully"
+            );
+
+            echo json_encode($data);
+        }
     }
 
 
